@@ -7,6 +7,7 @@ import it.exercise.enums.EventType;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.time.LocalDate;
 
 public class Application {
     private static final EntityManagerFactory emf = Persistence.createEntityManagerFactory("gestioneeventi");
@@ -16,10 +17,10 @@ public class Application {
         EntityManager em = emf.createEntityManager();
         EventoDAO evDao = new EventoDAO(em);
 
-        Evento galleriaBorghese = new Evento("Mostra Galleria Borghese", "2024-12-31", "Mostra Galleria Borghese", EventType.PUBBLICO, 400);
-        Evento pompei = new Evento("Parco Archeologico di Pompei", "2024-01-23", "Parco Archeologico di Pompei", EventType.PUBBLICO, 1000);
-        Evento vanGoghMi = new Evento("Van Gogh", "20204-01-28", "Mostra presso AI Mudec di Milano", EventType.PUBBLICO, 300);
-        Evento vgExp = new Evento("Open - Van Gogh Experience", "2024-03-31", "Mostra multimediale a Roma", EventType.PRIVATO, 50);
+        Evento galleriaBorghese = new Evento("Mostra Galleria Borghese", LocalDate.of(20204, 12, 31), "Mostra Galleria Borghese", EventType.PUBBLICO, 400);
+        Evento pompei = new Evento("Parco Archeologico di Pompei", LocalDate.of(2024, 01, 23), "Parco Archeologico di Pompei", EventType.PUBBLICO, 1000);
+        Evento vanGoghMi = new Evento("Van Gogh", LocalDate.of(2024, 01, 28), "Mostra presso AI Mudec di Milano", EventType.PUBBLICO, 300);
+        Evento vgExp = new Evento("Open - Van Gogh Experience", LocalDate.of(2024, 03,31), "Mostra multimediale a Roma", EventType.PRIVATO, 50);
 
         evDao.saveEvent(galleriaBorghese);
         evDao.saveEvent(pompei);

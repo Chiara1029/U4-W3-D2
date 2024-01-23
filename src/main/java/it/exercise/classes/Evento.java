@@ -4,6 +4,7 @@ package it.exercise.classes;
 import it.exercise.enums.EventType;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "eventi")
@@ -16,7 +17,7 @@ public class Evento {
     private String title;
 
     @Column (name = "data_evento")
-    private String date;
+    private LocalDate date;
 
     @Column (name = "descrizione")
     private String description;
@@ -30,7 +31,7 @@ public class Evento {
 
     public Evento(){}
 
-    public Evento(String title, String date, String description, EventType eventType, int maxNum) {
+    public Evento(String title, LocalDate date, String description, EventType eventType, int maxNum) {
         this.title = title;
         this.date = date;
         this.description = description;
@@ -54,11 +55,11 @@ public class Evento {
         this.title = title;
     }
 
-    public String getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
